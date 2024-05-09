@@ -8,7 +8,7 @@ use image::{io::Reader as ImageReader, RgbaImage};
 use crate::utils::get_bits;
 
 pub fn decode(input_file: &PathBuf, bit_count: &usize) -> anyhow::Result<Vec<u8>, Error> {
-    let img: RgbaImage = ImageReader::open(input_file).unwrap().decode().unwrap().into_rgba8();
+    let img: RgbaImage = ImageReader::open(input_file)?.decode()?.into_rgba8();
 
     let mut bit_vec: BitVec<u8, Lsb0> = BitVec::new();
 
